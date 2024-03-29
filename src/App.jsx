@@ -4,7 +4,9 @@ import Home from "./page/Home.jsx";
 import Error from "./_utils/Error.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthGuard from "./_helpers/AuthGuard.jsx";
-import Dashboard from "./page/Dashboard.jsx";
+import Panel from "./page/Panel.jsx";
+import AdminPanel from "./page/AdminPanel.jsx";
+import Register from "./page/register.jsx";
 
 
 function App() {
@@ -15,10 +17,12 @@ function App() {
                 {/* on attribut un component par lien */}
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/data" element={
+                <Route path="/register" element={<Register />} />
+                <Route path="/data" element={<Panel />} />
+                <Route path="/admin" element={
                     // on autorise uniquement l'utilisateur connecté
                     <AuthGuard> 
-                        <Dashboard />    
+                        <AdminPanel />    
                     </AuthGuard>
                 } />
                 
