@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Navigate } from "react-router-dom";
+import { accountService } from '../_services/account.service';
 
 import '../styles/style.css';
 import '../styles/login.css';
@@ -13,6 +15,10 @@ function Login() {
         email: "",
         password: ""
     })
+
+    const [errorPasswordWrong, setErrorPasswordWrong] = useState(false)
+
+    const [errorEmailWrong, setErrorEmailWrong] = useState(false)
 
     const [errorPasswordEmpty, setErrorPasswordEmpty] = useState(false)
 
@@ -33,7 +39,7 @@ function Login() {
         axios.post(`${window.location.origin}/api/login`, credentials)
         .then((res) => {
             console.log(res);
-
+            accountService.saveToken(res.data.accessToken)
             setRedirect(true);
         })
         .catch((err) => {
@@ -41,16 +47,35 @@ function Login() {
             if (err['response']['status'] == 400){
                 // mdp et email vide
                 setErrorEmailEmpty(true);
+                setErrorEmailWrong(false);
                 setErrorPasswordEmpty(true);
+                setErrorPasswordWrong(false);
             }else if (err['response']['status'] == 401){
                 // email vide 
                 setErrorEmailEmpty(true);
+                setErrorEmailWrong(false);
                 setErrorPasswordEmpty(false);
+                setErrorPasswordWrong(false);
             }else if (err['response']['status'] == 402){
                 // mdp vide
                 setErrorEmailEmpty(false);
+                setErrorEmailWrong(false);
                 setErrorPasswordEmpty(true);
+                setErrorPasswordWrong(false);
+            }else if (err['response']['status'] == 403){
+                // mauvaise email ou utilisateur inéxistant dans la db
+                setErrorEmailWrong(true);
+                setErrorPasswordWrong(false);
+                setErrorPasswordEmpty(false);
+                setErrorEmailEmpty(false);
+            }else if (err['response']['status'] == 405){
+                // mauvais mdp 
+                setErrorEmailWrong(false);
+                setErrorPasswordWrong(true);
+                setErrorPasswordEmpty(false);
+                setErrorEmailEmpty(false);
             }
+
         })
     }
 
@@ -73,7 +98,15 @@ function Login() {
             <span>MDP</span>
             <input className="form-field" name='password' type="text" placeholder="Mot de Passe" value={credentials.password} onChange={onChange}/>
         </div>
+        {errorPasswordEmpty && <p className="error-message">entrez un mot de passe !</p>}
         <button>connection</button>
+        {errorEmailWrong && (
+            <div className='error-container'>
+                <p className="error-message">Mauvaise email ou </p>
+                <a href="/register" className='link'>créez un compte</a>
+        </div>
+        )}
+        {errorPasswordWrong && <p className="error-message">mot de passe incorrect !</p>}
     </form>
     </div>
   );

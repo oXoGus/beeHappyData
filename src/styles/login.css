@@ -133,6 +133,24 @@ html {
     }
 }
 
+
+.error-container {
+    display: flex; /* Utiliser flexbox pour placer les éléments sur la même ligne */
+    align-items: center; /* Centrer les éléments verticalement */
+    
+}
+
+.error-message {
+    margin-right: 5px; /* Ajouter un espace entre le texte et le lien */
+    color: red;
+}
+
+.link {
+    color: red; /* Couleur du lien */
+    
+}
+
+
 button {
     margin-bottom: 50px;
     margin-top: 25px;
