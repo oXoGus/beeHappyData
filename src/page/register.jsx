@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Navigate, redirect } from "react-router-dom";
 
 import '../styles/style.css';
 import '../styles/login.css';
@@ -14,24 +15,42 @@ function Register() {
         password: ""
     })
 
-
+    const [redirect, setRedirect] = useState(false);
+    
     // on met a jour les valeurs 
     const onChange = (e) => {
         setCredentials({
             ...credentials, 
             [e.target.name]: e.target.value})
     }
-
+    ;
     const onSubmit = (e) => {
         e.preventDefault();
         console.log(credentials.email, credentials.password);
-        axios.post("https://humble-mantis-evident.ngrok-free.app/api/post/emailVerify", credentials)
+        axios.put(`${window.location.origin}/api/register`, credentials)
         .then((res) => {
             console.log(res);
+            alert("compte crée !");  
+            setRedirect(true);
+            
         })
         .catch((err) => {
-            console.log(err);
+            console.log(err)
+            if (err['response']['status'] == 401) {
+                alert("utilisateur déja pris !")
+            }
+            else if (err['response']['status'] == 400){
+                alert("email ou mdp manquant !")
+            }
+            else {
+                alert("Erreur, veuillez réessayer")
+            }
         })
+    }
+
+    //redirection
+    if (redirect){
+        return <Navigate to="/login" />;
     }
 
     return (

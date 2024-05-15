@@ -14,6 +14,11 @@ function Login() {
         password: ""
     })
 
+    const [errorPasswordEmpty, setErrorPasswordEmpty] = useState(false)
+
+    const [errorEmailEmpty, setErrorEmailEmpty] = useState(false)
+
+    const [redirect, setRedirect] = useState(false);
 
     // on met a jour les valeurs 
     const onChange = (e) => {
@@ -25,24 +30,45 @@ function Login() {
     const onSubmit = (e) => {
         e.preventDefault();
         console.log(credentials.email, credentials.password);
-        axios.post("https://humble-mantis-evident.ngrok-free.app/api/post/emailVerify", email)
+        axios.post(`${window.location.origin}/api/login`, credentials)
         .then((res) => {
             console.log(res);
+
+            setRedirect(true);
         })
         .catch((err) => {
             console.log(err);
+            if (err['response']['status'] == 400){
+                // mdp et email vide
+                setErrorEmailEmpty(true);
+                setErrorPasswordEmpty(true);
+            }else if (err['response']['status'] == 401){
+                // email vide 
+                setErrorEmailEmpty(true);
+                setErrorPasswordEmpty(false);
+            }else if (err['response']['status'] == 402){
+                // mdp vide
+                setErrorEmailEmpty(false);
+                setErrorPasswordEmpty(true);
+            }
         })
+    }
+
+    //redirection
+    if (redirect){
+        return <Navigate to="/admin" />;
     }
 
     return (
     <div>
        <Navbar/>
     <form className="login_page" onSubmit={onSubmit} noValidate>
-        <h1 className="login_title">Accédez aà votre compte privé</h1>
+        <h1 className="login_title">Accédez à votre compte privé</h1>
         <div className="form-group">
             <input className="form-field" type="email" name='email' placeholder="Email" value={credentials.email} onChange={onChange}/>
             <span>@lyceemlk.org</span>
         </div>
+        {errorEmailEmpty && <p className="error-message">entrez une adresse email !</p>}
         <div className="form-group">
             <span>MDP</span>
             <input className="form-field" name='password' type="text" placeholder="Mot de Passe" value={credentials.password} onChange={onChange}/>
