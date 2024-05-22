@@ -5,8 +5,8 @@ import Error from "./_utils/Error.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthGuard from "./_helpers/AuthGuard.jsx";
 import Panel from "./page/Panel.jsx";
-import AdminPanel from "./page/AdminPanel.jsx";
 import Register from "./page/register.jsx";
+import Disconnect from "./page/Disconnect.jsx";
 
 
 function App() {
@@ -19,10 +19,11 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/data" element={<Panel />} />
+                <Route path="/disconnect" element={<Disconnect />} />
                 <Route path="/admin" element={
                     // on autorise uniquement l'utilisateur connecté
                     <AuthGuard> 
-                        <AdminPanel />    
+                            
                     </AuthGuard>
                 } />
                 

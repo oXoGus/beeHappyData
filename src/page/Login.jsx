@@ -39,7 +39,12 @@ function Login() {
         axios.post(`${window.location.origin}/api/login`, credentials)
         .then((res) => {
             console.log(res);
+
+            // on enrengistre le token et l'userName dans le stockage local du navigateur pour les réutiliser après
             accountService.saveToken(res.data.accessToken)
+            accountService.saveUserName(credentials.email)
+            
+            // on redirige l'utilisateur vers la panel utilisateur
             setRedirect(true);
         })
         .catch((err) => {
@@ -91,7 +96,7 @@ function Login() {
         <h1 className="login_title">Accédez à votre compte privé</h1>
         <div className="form-group">
             <input className="form-field" type="email" name='email' placeholder="Email" value={credentials.email} onChange={onChange}/>
-            <span>@lyceemlk.org</span>
+            <span>utilisateur</span>
         </div>
         {errorEmailEmpty && <p className="error-message">entrez une adresse email !</p>}
         <div className="form-group">
