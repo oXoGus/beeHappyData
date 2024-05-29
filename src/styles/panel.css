@@ -74,7 +74,7 @@ h1 {
 }
 
 .history {
-    width: 30%;
+    width: 50%;
     background: rgb(255, 255, 255);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.1px);
@@ -86,7 +86,7 @@ h1 {
 }
 
 .graph {
-    width: 50%;
+    width: 500px;
     background: rgb(255, 255, 255);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.1px);
