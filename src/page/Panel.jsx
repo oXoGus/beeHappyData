@@ -83,15 +83,20 @@ function Panel() {
 
     useEffect(() => {
         axios.get(`${window.location.origin}/api/get/coords/1`)
-            .then(async res => {
+            .then(res => {
                 console.log(res.data[0].coordsLat, res.data[0].coordsLng);
                 const coordLat = res.data[0].coordsLat;
                 const coordLng = res.data[0].coordsLng;
                 const coordinates = [coordLat, coordLng];
                 setCoords(coordinates);
 
-                const addressResponse = await axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${coordLat}&lon=${coordLng}&zoom=18&addressdetails=1`);
-                setAddress(addressResponse.data.display_name);
+                axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${coordLat}&lon=${coordLng}&zoom=18&addressdetails=1`)
+                .then(addressResponse => {
+                    setAddress(addressResponse.data.display_name);
+                })
+                .catch(err => {
+                    console.error("Erreur lors du chargement de l'adresse:", err);
+                });
             })
             .catch(err => {
                 console.error("Erreur lors du chargement des coordonnées:", err);
