@@ -140,7 +140,7 @@ function Panel() {
                                 {coords ? <p>{coords[1]}</p> : <p>Chargement de la longitude...</p>}
                             </div>
                             {coords && (
-                                <a href={`https://www.google.fr/maps/place/Emplacement+de+la+Ruche/@${coords[0]},${coords[1]},17z/`} target="_blank" rel="noopener noreferrer">
+                                <a href={`https://www.google.fr/maps/place/Emplacement+de+la+Ruche/`} onclick="location.href=this.href+'@'+{coords[0]}+',$'+{coords[1]}+',17z/'" target="_blank" rel="noopener noreferrer">
                                     <button id="go_to">Aller à la ruche</button>
                                 </a>
                             )}
