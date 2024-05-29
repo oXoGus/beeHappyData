@@ -20,9 +20,9 @@ function Panel() {
     const [weightData, setWeightData] = useState(null);
     const [selectedOptionWeight, setSelectedOptionWeight] = useState('30');
 
-    const [coords, setCoords] = useState(0)
-    const [coordsLat, setCoordsLat] = useState(0)
-    const [coordsLng, setCoordsLng] = useState(0)
+    const [coords, setCoords] = useState(null)
+    const [coordsLat, setCoordsLat] = useState(null)
+    const [coordsLng, setCoordsLng] = useState(null)
     const [address, setAddress] = useState(null);
 
     const handleOptionChangeBattery = (event) => {
