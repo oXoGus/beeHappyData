@@ -156,7 +156,7 @@ function Panel() {
                             <div id="longitude" className="texte_info">
                                 {coordsLng && <p>{coordsLng}</p>}
                             </div>
-                            <a href='{https://www.google.fr/maps/place/Emplacement+de+la+Ruche/@{coordsLat},{coordsLng},17z/}' target="_blank">
+                            <a href='https://www.google.fr/maps/place/Emplacement+de+la+Ruche/@${coordsLat},${coordsLng},17z/' target="_blank">
                                 <button id="go_to">Aller a la ruche</button>
                             </a>
 
