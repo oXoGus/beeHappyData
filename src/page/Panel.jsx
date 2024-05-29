@@ -156,7 +156,9 @@ function Panel() {
                             <div id="longitude" className="texte_info">
                                 {coordsLng && <p>{coordsLng}</p>}
                             </div>
-                            
+                            <a href="https://www.google.fr/maps/place/33+Chem.+des+Meuniers,+77700+Chessy/@48.8816336,2.7501194,17z/data=!3m1!4b1!4m6!3m5!1s0x47e61c8cb091e72d:0xe1bfee5efa485e0!8m2!3d48.8816301!4d2.7526943!16s%2Fg%2F11d_ttf6wf?entry=ttu">
+                                <button>Aller a la ruche</button>
+                            </a>
 
                         </div>
                     </section>
