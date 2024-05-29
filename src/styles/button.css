@@ -3,12 +3,7 @@
 *:before {
   box-sizing: border-box;
 }
-body {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: #1a1a1a;
-}
+
 #app {
   display: grid;
   grid-template-columns: 1fr;
