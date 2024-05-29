@@ -48,31 +48,6 @@ h1 {
     font-weight: bold;
 }
 
-.infos {
-    margin-top: 75px;
-    margin-bottom: 25px;
-    width: 38%;
-}
-
-.texte_info {
-    margin-left: 30px;
-    margin-bottom: 50px;
-}
-
-.batterie {
-    width: 100%;
-    height: 420px;
-    margin-left: 0px;
-    display: flex;
-}
-
-.poids {
-    width: 100%;
-    height: 420px;
-    margin-left: 0px;
-    display: flex;
-}
-
 .history {
     width: 100%;
     background: rgb(255, 255, 255);
