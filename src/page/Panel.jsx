@@ -84,6 +84,7 @@ function Panel() {
     useEffect(() => {
         axios.get(`${window.location.origin}/api/get/coords/1`)
             .then(async res => {
+                console.log(res.data[0].coordsLat, res.data[0].coordsLng);
                 const coordLat = res.data[0].coordsLat;
                 const coordLng = res.data[0].coordsLng;
                 const coordinates = [coordLat, coordLng];
