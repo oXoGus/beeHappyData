@@ -21,3 +21,5 @@ const Button = ({ as, children, filled, secondary, ...rest }) => {
   Button.defaultProps = {
     as: 'button'
   }
+
+  export default Button

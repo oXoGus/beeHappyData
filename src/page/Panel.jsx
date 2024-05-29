@@ -7,6 +7,8 @@ import '../styles/style.css';
 import '../styles/panel.css';
 import BatteryChart from "../component/BatteryChart";
 import WeightChart from "../component/WeightChart";
+import Button from "../component/button";
+
 
 function Panel() {
 
@@ -128,11 +130,7 @@ function Panel() {
                             <div id="longitude" className="texte_info">
                                 {coords ? <p>{coords[1]}</p> : <p>Chargement de la longitude...</p>}
                             </div>
-                            {coords && (
-                                <a href={`https://www.google.fr/maps/place/Emplacement+de+la+Ruche/`} onclick="location.href=this.href+'@'+{coords[0]}+',$'+{coords[1]}+',17z/'" target="_blank" rel="noopener noreferrer">
-                                    <button id="go_to">Aller à la ruche</button>
-                                </a>
-                            )}
+                            {coords && <Button></Button>}
                         </div>
                     </section>
                     <section className="batterie">
