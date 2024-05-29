@@ -86,7 +86,7 @@ h1 {
 }
 
 .graph {
-    width: 70%;
+    width: 100%;
     background: rgb(255, 255, 255);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.1px);
@@ -94,33 +94,6 @@ h1 {
     border: 15px solid rgba(252, 252, 252, 0.38);
     margin: 5px;
     border-radius: 16px;
-}
-
-.live_infos {
-    width: 99%;
-    background: rgb(255, 255, 255);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.1px);
-    -webkit-backdrop-filter: blur(5.1px);
-    border: 1px solid rgba(252, 252, 252, 0.38);
-    margin: 5px;
-    border-radius: 16px;
-}
-
-.live_value {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.live_battery {
-    margin-left: 10%;
-    text-align: center;
-}
-
-.live_poids {
-    margin-right: 10%;
-    text-align: center;
 }
 
 .go_to{
