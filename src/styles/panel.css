@@ -40,7 +40,10 @@
     margin-top: 20px;
     border-radius: 16px;
     width: 90%;
-    background-color: rgb(202, 25, 25);
+}
+
+#map_full {
+    background-color: aqua;
 }
 
 h1 {
