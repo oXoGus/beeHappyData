@@ -1,4 +1,5 @@
 import React from 'react';
+import "../styles/button.css";
 
 const Button = ({ as, children, filled, secondary, ...rest }) => {
     const that = {
