@@ -86,7 +86,7 @@ h1 {
 }
 
 .graph {
-    width: auto;
+    width: 100%;
     background-color: white;
     margin: 5px;
     border-radius: 16px;
