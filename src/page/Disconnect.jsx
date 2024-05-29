@@ -12,7 +12,7 @@ function Disconnect () {
     }
 
     return (
-        <Navigate to='/'/>
+        <Navigate to='/login'/>
     )
     
 }

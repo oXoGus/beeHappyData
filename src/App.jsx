@@ -7,6 +7,7 @@ import AuthGuard from "./_helpers/AuthGuard.jsx";
 import Panel from "./page/Panel.jsx";
 import Register from "./page/register.jsx";
 import Disconnect from "./page/Disconnect.jsx";
+import ProfileSettings from "./page/ProfileSettings.jsx";
 
 
 function App() {
@@ -20,10 +21,10 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/data" element={<Panel />} />
                 <Route path="/disconnect" element={<Disconnect />} />
-                <Route path="/admin" element={
+                <Route path="/setting" element={
                     // on autorise uniquement l'utilisateur connecté
                     <AuthGuard> 
-                            
+                            <ProfileSettings/>
                     </AuthGuard>
                 } />
                 

@@ -57,14 +57,12 @@ function Register() {
     <div>
        <Navbar/>
     <form className="login_page" onSubmit={onSubmit} noValidate>
-        <h1 className="login_title">créez votre compte admin</h1>
+        <h1 className="login_title">Inscription</h1>
         <div className="form-group">
             <input className="form-field" type="email" name='email' placeholder="Email" value={credentials.email} onChange={onChange}/>
-            <span>@lyceemlk.org</span>
         </div>
         <div className="form-group">
-            <span>MDP</span>
-            <input className="form-field" name='password' type="text" placeholder="Mot de Passe" value={credentials.password} onChange={onChange}/>
+            <input className="form-field" name='password' type="password" placeholder="Mot de Passe" value={credentials.password} onChange={onChange}/>
         </div>
         <button>créez votre compte</button>
     </form>

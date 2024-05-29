@@ -1,9 +1,7 @@
 body {
-    background: rgb(255,255,255);
-    background: linear-gradient(160deg, rgba(255,255,255,1) 0%, rgba(14,159,110,1) 100%);
-    background-repeat: no-repeat;
+    background-color: white;
     margin: 0px;
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
     font-size: medium;
     overflow-x: hidden;
 }
@@ -12,11 +10,6 @@ body {
 
 .navbar {
     background-color: rgb(255, 255, 255);
-    background: rgba(252, 252, 252, 0);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.1px);
-    -webkit-backdrop-filter: blur(5.1px);
-    border: 1px solid rgba(252, 252, 252, 0.38);
     height: 50px;
     position: sticky;
     display: flex;
@@ -89,12 +82,9 @@ body {
 /* Title */
 
 .Title {
-    background: rgba(252, 252, 252, 0);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.1px);
-    -webkit-backdrop-filter: blur(5.1px);
-    border: 1px solid rgba(252, 252, 252, 0.38);
-    height: 400px;
+    background-color: rgba(172, 217, 179, 1);
+    height: auto;
+    max-height: 600px;
     margin: 5px;
     border-radius: 16px;
     display: flex;
@@ -102,14 +92,16 @@ body {
 }
 
 .title_text {
-    font-size: 80px;
-    margin-left: 30px;
-    font-weight: bold;
+    font-size: 150px;
+    margin-right: 50px;
+    margin-left: auto;
+    font-weight: 600;
 }
 
 .bee {
-    height: 400px;
-    margin-left: auto;
+    height: auto;
+    margin-right: auto;
+    max-height: 700px;
 }
 
 .icon {

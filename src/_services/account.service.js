@@ -4,6 +4,7 @@ let saveToken = (token) => {
 
 let logout = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('userName')
 }
 
 let saveUserName = (userName) => {

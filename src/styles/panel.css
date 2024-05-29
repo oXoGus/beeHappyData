@@ -7,19 +7,6 @@
     height: 30px;
 }
 
-.vertical_navbar {
-    width: 130%;
-    height: auto;
-    margin-bottom: 5px;
-    background: rgb(255, 255, 255);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.1px);
-    -webkit-backdrop-filter: blur(5.1px);
-    border: 1px solid rgba(252, 252, 252, 0.38);
-    margin: 5px;
-    border-radius: 16px;
-}
-
 .menus {
     font-size: smaller;
     margin-top: 15px;
@@ -48,22 +35,21 @@
     display: flex;
 }
 
-#map {
+.map {
     margin: 15px;
     margin-top: 20px;
     border-radius: 16px;
-    height: 425px;
-    width: 95%;
+    width: 90%;
+}
+
+.map_full {
+    width: 60%;
 }
 
 h1 {
     margin-left: 20px;
     font-size: larger;
     font-weight: bold;
-}
-
-.map {
-    width: 60%;
 }
 
 .infos {

@@ -86,22 +86,20 @@ function Login() {
 
     //redirection
     if (redirect){
-        return <Navigate to="/admin" />;
+        return <Navigate to="/data" />;
     }
 
     return (
     <div>
        <Navbar/>
     <form className="login_page" onSubmit={onSubmit} noValidate>
-        <h1 className="login_title">Accédez à votre compte privé</h1>
+        <h1 className="login_title">Connexion</h1>
         <div className="form-group">
             <input className="form-field" type="email" name='email' placeholder="Email" value={credentials.email} onChange={onChange}/>
-            <span>utilisateur</span>
         </div>
-        {errorEmailEmpty && <p className="error-message">entrez une adresse email !</p>}
+        {errorEmailEmpty && <p className="error-message">entrez votre nom d'utilisateur !</p>}
         <div className="form-group">
-            <span>MDP</span>
-            <input className="form-field" name='password' type="text" placeholder="Mot de Passe" value={credentials.password} onChange={onChange}/>
+            <input className="form-field" name='password' type="password"  placeholder="Mot de Passe" value={credentials.password} onChange={onChange}/>
         </div>
         {errorPasswordEmpty && <p className="error-message">entrez un mot de passe !</p>}
         <button>connection</button>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../component/navbar";
 import axios from "axios";
+import Map from "../component/Map";
+import reverseGeocode from "../component/adressMap";
 
 import '../styles/style.css';
 import '../styles/panel.css';
@@ -8,11 +10,20 @@ import BatteryChart from "../component/BatteryChart";
 import WeightChart from "../component/WeightChart";
 
 function Panel() {
+
+    // useState pour afficher le graph que si il n'y a pas eu d'err dans la récuperation des donées 
     const [batteryData, setBatteryData] = useState(null);
+
+    //useState pour recuperé la valeur du menu déroulant 
     const [selectedOptionBattery, setSelectedOptionBattery] = useState('30');
 
     const [weightData, setWeightData] = useState(null);
     const [selectedOptionWeight, setSelectedOptionWeight] = useState('30');
+
+    const [coords, setCoords] = useState(null)
+    const [coordsLat, setCoordsLat] = useState(null)
+    const [coordsLng, setCoordsLng] = useState(null)
+    const [address, setAddress] = useState(null);
 
     const handleOptionChangeBattery = (event) => {
         setSelectedOptionBattery(event.target.value);
@@ -52,6 +63,8 @@ function Panel() {
             });
     }, [selectedOptionBattery]); // Ecoute uniquement les changements de selectedOptionBattery
 
+
+    // on réappel cette fonction des qu'il y a un changement de selectedOptionWeight
     useEffect(() => {
         axios.get(`${window.location.origin}/api/get/weight/${selectedOptionWeight}`)
             .then(res => {
@@ -82,6 +95,28 @@ function Panel() {
             });
     }, [selectedOptionWeight]); // Ecoute uniquement les changements de selectedOptionWeight
 
+    useEffect(() => {
+        axios.get(`${window.location.origin}/api/get/coords/1`)
+            .then(async res => {
+                console.log()
+                setCoordsLat(res.data[0].coordsLat);
+                setCoordsLng(res.data[0].coordsLng);
+                
+
+                axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${res.data[0].coordsLat}&lon=${res.data[0].coordsLng}&zoom=18&addressdetails=1`)
+                .then(res => {
+                    setAddress(res.data.display_name);
+                })
+                
+            })
+            .catch(err => {
+                console.error("Erreur lors du chargement des données des coords", err);
+            });
+    
+            
+    })
+        
+
     return (
         <div>
             <Navbar />
@@ -99,17 +134,25 @@ function Panel() {
                         </div>
                     </section>
                     <section className="location">
-                        <div className="map">
+                        <div id="map">
                             <h1>Localisation</h1>
-                            <div id="map"></div>
+                            <div id="map_full">
+                                {coords && <Map coordinates={coords} />}
+                            </div>
                         </div>
                         <div className="infos">
                             <h1>Adresse</h1>
-                            <div id="address" className="texte_info"></div>
+                            <div id="address" className="texte_info">
+                                {address && <p>{address}</p>}
+                            </div>
                             <h1>Latitude</h1>
-                            <div id="latitude" className="texte_info"></div>
+                            <div id="latitude" className="texte_info">
+                                {coordsLat && <p>{coordsLat}</p>}
+                            </div>
                             <h1>Longitude</h1>
-                            <div id="longitude" className="texte_info"></div>
+                            <div id="longitude" className="texte_info">
+                                {coordsLng && <p>{coordsLng}</p>}
+                            </div>
                         </div>
                     </section>
                     <section className="batterie">
