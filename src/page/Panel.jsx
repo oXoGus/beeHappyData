@@ -9,7 +9,6 @@ import BatteryChart from "../component/BatteryChart";
 import WeightChart from "../component/WeightChart";
 import Button from "../component/button";
 
-
 function Panel() {
 
     const [batteryData, setBatteryData] = useState(null);
@@ -110,6 +109,17 @@ function Panel() {
             <Navbar />
             <div className="page">
                 <section className="stats">
+                    <section className="live_infos">
+                        <h1>Informations en Direct</h1>
+                        <div className="live_value">
+                            <div className="live_battery">
+                                <h2 className="value_text" id="battery"></h2>
+                            </div>
+                            <div className="live_poids">
+                                <h2 className="value_text" id="poids"></h2>
+                            </div>
+                        </div>
+                    </section>
                     <section className="location">
                         <div id="map">
                             <h1>Localisation</h1>
@@ -130,7 +140,9 @@ function Panel() {
                             <div id="longitude" className="texte_info">
                                 {coords ? <p>{coords[1]}</p> : <p>Chargement de la longitude...</p>}
                             </div>
-                            {coords && <Button></Button>}
+                            {coords && 
+                                <Button as="a" href={`https://www.google.fr/maps/place/${coords[0]},${coords[1]}`} >Link Me!</Button>
+                            }
                         </div>
                     </section>
                     <section className="batterie">

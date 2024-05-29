@@ -22,4 +22,4 @@ const Button = ({ as, children, filled, secondary, ...rest }) => {
     as: 'button'
   }
 
-  export default Button
+  export default Button;
