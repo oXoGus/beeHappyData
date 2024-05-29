@@ -124,6 +124,9 @@ h1 {
     text-align: center;
 }
 
+.go_to{
+    margin-top: auto;
+}
 
 .value_text {
     font-size: 60px;
