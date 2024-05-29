@@ -141,7 +141,7 @@ function Panel() {
                                 {coords ? <p>{coords[1]}</p> : <p>Chargement de la longitude...</p>}
                             </div>
                             {coords && 
-                                <Button as="a" href={`https://www.google.fr/maps/place/${coords[0]},${coords[1]}`} >Link Me!</Button>
+                                <Button as="a" href={`https://www.google.fr/maps/place/${coords[0]},${coords[1]}`} >Aller a la ruche !</Button>
                             }
                         </div>
                     </section>
