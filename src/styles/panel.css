@@ -35,15 +35,12 @@
     display: flex;
 }
 
-.map {
+#map {
     margin: 15px;
     margin-top: 20px;
     border-radius: 16px;
     width: 90%;
-}
-
-.map_full {
-    width: 60%;
+    background-color: aqua;
 }
 
 h1 {

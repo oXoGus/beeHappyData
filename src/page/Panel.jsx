@@ -20,9 +20,9 @@ function Panel() {
     const [weightData, setWeightData] = useState(null);
     const [selectedOptionWeight, setSelectedOptionWeight] = useState('30');
 
-    const [coords, setCoords] = useState(null)
-    const [coordsLat, setCoordsLat] = useState(null)
-    const [coordsLng, setCoordsLng] = useState(null)
+    const [coords, setCoords] = useState(0)
+    const [coordsLat, setCoordsLat] = useState(0)
+    const [coordsLng, setCoordsLng] = useState(0)
     const [address, setAddress] = useState(null);
 
     const handleOptionChangeBattery = (event) => {
@@ -98,10 +98,13 @@ function Panel() {
     useEffect(() => {
         axios.get(`${window.location.origin}/api/get/coords/1`)
             .then(async res => {
-                console.log()
+                console.log(res)
+                console.log(res.data[0].coordsLat)
                 setCoordsLat(res.data[0].coordsLat);
+                console.log(coordsLat)
                 setCoordsLng(res.data[0].coordsLng);
-                
+                setCoords([coordsLat, coordsLng])
+                console.log(coords)
 
                 axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${res.data[0].coordsLat}&lon=${res.data[0].coordsLng}&zoom=18&addressdetails=1`)
                 .then(res => {
@@ -153,6 +156,10 @@ function Panel() {
                             <div id="longitude" className="texte_info">
                                 {coordsLng && <p>{coordsLng}</p>}
                             </div>
+                            <a href="https://www.google.fr/maps/place/33+Chem.+des+Meuniers,+77700+Chessy/@48.8816336,2.7501194,17z/data=!3m1!4b1!4m6!3m5!1s0x47e61c8cb091e72d:0xe1bfee5efa485e0!8m2!3d48.8816301!4d2.7526943!16s%2Fg%2F11d_ttf6wf?entry=ttu">
+                                <button>Aller a la ruche</button>
+                            </a>
+
                         </div>
                     </section>
                     <section className="batterie">
