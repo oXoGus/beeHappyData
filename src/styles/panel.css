@@ -48,18 +48,6 @@ h1 {
     font-weight: bold;
 }
 
-.history {
-    width: 100%;
-    background: rgb(255, 255, 255);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.1px);
-    -webkit-backdrop-filter: blur(5.1px);
-    border: 1px solid rgba(252, 252, 252, 0.38);
-    margin: 5px;
-    border-radius: 16px;
-    overflow: auto;
-}
-
 .graph {
     width: 100%;
     background-color: white;
