@@ -57,9 +57,7 @@ h1 {
 }
 
 .go_to{
-    margin-top: 20px;
-    margin-left: 20px;
-    justify-content: end;
+    margin: 20px;
 }
 
 .value_text {
