@@ -31,6 +31,9 @@
     display: flex;
 }
 
+.infos {
+    width: 30%;
+}
 
 #map {
     margin: 15px;
