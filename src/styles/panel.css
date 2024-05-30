@@ -31,6 +31,10 @@
     display: flex;
 }
 
+.text_infos {
+    width: 10%;
+}
+
 .infos {
     width: 10%;
 }
