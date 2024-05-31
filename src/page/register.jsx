@@ -5,6 +5,7 @@ import { Navigate, redirect } from "react-router-dom";
 import '../styles/style.css';
 import '../styles/login.css';
 import Navbar from '../component/navbar';
+import Button from '../component/button';
 
 function Register() {
     // variables completement syncro avec le code html
@@ -64,7 +65,7 @@ function Register() {
         <div className="form-group">
             <input className="form-field" name='password' type="password" placeholder="Mot de Passe" value={credentials.password} onChange={onChange}/>
         </div>
-        <button>créez votre compte</button>
+        <Button role="button">Inscription</Button>
     </form>
     </div>
   );

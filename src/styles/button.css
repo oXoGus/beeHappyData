@@ -12,7 +12,7 @@
 .dir-control {
   --borderWidth: 2;
   --buttonColor: #55a358;
-  --bg: #0d0d0d;
+  --bg: whitesmoke;
   --backdrop: transparent;
   --fontSize: 1;
   --horizontalPadding: 16;
@@ -38,6 +38,8 @@
   width: 300px;
   transition: transform 0.2s;
   transform: translate(0, calc(var(--y, 0) * 1%)) scale(var(--scale, 1));
+  margin-bottom: 50px;
+  margin-top: 20px;
 }
 .dir-control:hover {
   --y: -5;

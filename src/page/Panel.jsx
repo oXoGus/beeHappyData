@@ -67,7 +67,7 @@ function Panel() {
                 const formattedData = {
                     labels: res.data.map(message => formatDate(message.messageDateTime)),
                     datasets: [{
-                        label: 'poids',
+                        label: 'masse de la ruche',
                         data: res.data.map(message => message.weight),
                         fill: false,
                         borderColor: 'rgb(153, 102, 255)',
@@ -108,10 +108,16 @@ function Panel() {
         <div>
             <Navbar />
             <div className="page">
+                <section className="live">
+                    <div className="batterie_live">
+                        
+                    </div>
+                    <div className="poids_live">-
+                    </div>
+                </section>
                 <section className="stats">
                     <section className="location">
                         <div id="map">
-                            <h1>Localisation</h1>
                             <div id="map_full">
                                 {coords ? <Map coordinates={coords} /> : <p>Chargement de la carte...</p>}
                             </div>
@@ -129,16 +135,16 @@ function Panel() {
                             <div id="longitude" className="texte_info">
                                 {coords ? <p>{coords[1]}</p> : <p>Chargement de la longitude...</p>}
                             </div>
-                            {coords && 
-                                <Button as="a" href={`https://www.google.fr/maps/place/${coords[0]},${coords[1]}`} target="_blank">Aller a la ruche !</Button>
-                            }
+                            <div className="go_button">
+                                {coords && 
+                                    <Button as="a" href={`https://www.google.fr/maps/place/${coords[0]},${coords[1]}`} target="_blank">Aller a la ruche !</Button>
+                                }
+                            </div>
                         </div>
                     </section>
-                    <section className="batterie">
-                        <div className="history">
-                            <div id="battery_table"></div>
-                        </div>
-                        <div className="graph">
+                    <section className="graphiques">
+                        <div className="graph_bat">
+                            {batteryData && <BatteryChart data={batteryData} />}
                             <select value={selectedOptionBattery} onChange={handleOptionChangeBattery}>
                                 <option value="5">depuis 5 minutes</option>
                                 <option value="15">depuis 15 minutes</option>
@@ -146,11 +152,9 @@ function Panel() {
                                 <option value="60">depuis 1 heure</option>
                                 <option value="100">tout</option>
                             </select>
-                            {batteryData && <BatteryChart data={batteryData} />}
                         </div>
-                    </section>
-                    <section className="poids">
-                        <div className="graph">
+                        <div className="graph_poids">
+                            {weightData && <WeightChart data={weightData} selectedOptionWeight={selectedOptionWeight} />}
                             <select value={selectedOptionWeight} onChange={handleOptionChangeWeight}>
                                 <option value="5">depuis 5 minutes</option>
                                 <option value="15">depuis 15 minutes</option>
@@ -158,13 +162,9 @@ function Panel() {
                                 <option value="60">depuis 1 heure</option>
                                 <option value="100">tout</option>
                             </select>
-                            {weightData && <WeightChart data={weightData} />}
-                        </div>
-                        <div className="history">
-                            <div id="poids_table"></div>
                         </div>
                     </section>
-                </section>
+                </section> 
             </div>
         </div>
     );

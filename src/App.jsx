@@ -21,7 +21,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/data" element={<Panel />} />
                 <Route path="/disconnect" element={<Disconnect />} />
-                <Route path="/setting" element={
+                <Route path="/settings" element={
                     // on autorise uniquement l'utilisateur connecté
                     <AuthGuard> 
                             <ProfileSettings/>

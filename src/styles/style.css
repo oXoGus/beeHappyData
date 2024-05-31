@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color: rgb(214, 214, 214);
     margin: 0px;
     font-family: "Roboto Condensed", sans-serif;
     font-size: medium;
@@ -9,7 +9,7 @@ body {
 /* NavBar Horizontal */
 
 .navbar {
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(229, 231, 235, 1);
     height: 50px;
     position: sticky;
     display: flex;
@@ -19,6 +19,13 @@ body {
 .logo {
     width: 25px;
     margin: 10px;
+    transition: transform .1s;
+}
+
+.logo:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2);
 }
 
 .pages {
@@ -36,11 +43,14 @@ body {
     font-size: small;
     margin-left: 25px;
     margin-right: 25px;
+    transition: transform .1s;
 }
 
 .pages_name:hover {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
     color: #0E9F6E;
-    font-weight: bolder;
     cursor: pointer;
 }
 
@@ -63,11 +73,15 @@ body {
     font-size: small;
     margin-left: 5%;
     color: rgb(95, 95, 95);
+    transition: transform .1s;
 }
 
 .login_button:hover {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
     color: #0E9F6E;
-    font-weight: bolder;
+    cursor: pointer;
 }
 
 .login:hover {

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto'; 
 
-const BatteryChart = ({ data }) => {
+const BatteryChart = ({ data, selectedOptionBattery }) => {
   const chartRef = useRef(null);
   let myChart = null; // Garder une référence au graphique actuel
 
@@ -25,21 +25,38 @@ const BatteryChart = ({ data }) => {
                       text: 'Chart.js Line Chart - Cubic interpolation mode'
                     },
                   },
+                  elements: {
+                    point: {
+                        radius: 0 // Supprime les points sur la courbe
+                    }
+                  },
                   interaction: {
                     intersect: false,
                   },
                   scales: {
                     x: {
-                      display: true,
+                      ticks: {
+                        callback: function(value, index, values) {
+                          const totalLabels = values.length;
+                          const skipCount = Math.max(1, Math.floor(totalLabels / selectedOptionBattery)); 
+                          if (index % skipCount === 0) {
+                            return this.getLabelForValue(value);
+                          }
+                          return '';
+                        },
+                        autoSkip: false, // Désactiver l'autoSkip pour utiliser notre propre logique
+                      },
+                      display: false,
                       title: {
-                        display: true
+                        display: false,
+                        text: 'Temps'
                       }
                     },
                     y: {
-                      display: true,
+                      display: false,
                       title: {
-                        display: true,
-                        text: 'pourcentage de charge'
+                        display: false,
+                        text: 'Pourcentage'
                       },
                       suggestedMin: 0,
                       suggestedMax: 110

@@ -17,15 +17,16 @@ function Navbar() {
             <>
             <div className="navbar">
                 <div className="pages">
-                    <img src="src\ressources\logo.png" alt="logo" className="logo"/>
-                    <a href="/" className="pages_name">Acceuil</a>
+                    <a href="/">
+                        <img src="src\ressources\logo.png" href="/" alt="logo" className="logo"/>
+                    </a>
                     <a href="/data" className="pages_name">Accédez à toutes les données de la ruche</a>
                 </div>
                 <div className="login">
                     <img src="src\ressources\profile_icon.png" alt="" className="icon" />
-                    <a href="/admin" className="pages_name">Profile de {userName} </a>
+                    <a href="/settings" className="pages_name">Profile de {userName} </a>
                     <h6 className="slash">|</h6>
-                    <a href="/disconnect" className="login_button">se déconnecter</a>
+                    <a href="/disconnect" className="login_button">Deconnexion</a>
                 </div>
             </div>
     
@@ -35,13 +36,13 @@ function Navbar() {
             <>
             <div className="navbar">
                 <div className="pages">
-                    <img src="src\ressources\logo.png" alt="logo" className="logo"/>
-                    <a href="/" className="pages_name">Acceuil</a>
-                    <a href="/data" className="pages_name">Accédez à toutes les données de la ruche</a>
+                    <a href="/">
+                        <img src="src\ressources\logo.png" href="/" alt="logo" className="logo"/>
+                    </a>
+                    <a href="/data" className="pages_name">Accédez aux Données</a>
                 </div>
                 <div className="login">
-                    <img src="src\ressources\login.png" alt="" className="login_icon"/>
-                    <a href="/login" className="login_button">se connecter</a>
+                    <a href="/login" className="login_button">Connexion</a>
                     <h6 className="slash">|</h6>
                     <a href="/register" className="login_button">Inscription</a>
                 </div>

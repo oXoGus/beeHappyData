@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto'; 
 
-const WeightChart = ({ data }) => {
+const WeightChart = ({ data, selectedOptionWeight}) => {
   const chartRef = useRef(null);
   let myChart = null; // Garder une référence au graphique actuel
 
@@ -25,20 +25,25 @@ const WeightChart = ({ data }) => {
                       text: 'Chart.js Line Chart - Cubic interpolation mode'
                     },
                   },
+                  elements: {
+                    point: {
+                        radius: 0 // Supprime les points sur la courbe
+                    }
+                  },
                   interaction: {
                     intersect: false,
                   },
                   scales: {
                     x: {
-                      display: true,
+                      display: false,
                       title: {
                         display: true
                       }
                     },
                     y: {
-                      display: true,
+                      display: false,
                       title: {
-                        display: true,
+                        display: false,
                         text: 'poids de la ruche en kg'
                       },
                       suggestedMin: 0,

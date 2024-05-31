@@ -6,6 +6,7 @@ import { accountService } from '../_services/account.service';
 import '../styles/style.css';
 import '../styles/login.css';
 import Navbar from '../component/navbar';
+import Button from '../component/button';
 
 function Login() {
     // variables completement syncro avec le code html
@@ -102,7 +103,7 @@ function Login() {
             <input className="form-field" name='password' type="password"  placeholder="Mot de Passe" value={credentials.password} onChange={onChange}/>
         </div>
         {errorPasswordEmpty && <p className="error-message">entrez un mot de passe !</p>}
-        <button>connection</button>
+        <Button role="button">Connexion</Button>
         {errorEmailWrong && (
             <div className='error-container'>
                 <p className="error-message">Mauvaise email ou </p>
