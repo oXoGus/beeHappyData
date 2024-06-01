@@ -35,17 +35,6 @@ const BatteryChart = ({ data, selectedOptionBattery }) => {
                   },
                   scales: {
                     x: {
-                      ticks: {
-                        callback: function(value, index, values) {
-                          const totalLabels = values.length;
-                          const skipCount = Math.max(1, Math.floor(totalLabels / selectedOptionBattery)); 
-                          if (index % skipCount === 0) {
-                            return this.getLabelForValue(value);
-                          }
-                          return '';
-                        },
-                        autoSkip: false, // Désactiver l'autoSkip pour utiliser notre propre logique
-                      },
                       display: false,
                       title: {
                         display: false,

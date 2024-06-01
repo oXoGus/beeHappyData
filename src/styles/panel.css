@@ -1,3 +1,11 @@
+:root {
+    --main-color: whitesmoke;
+    --accent-color: rgba(14,159,110,1);
+    --secondary-color: rgba(14,159,110,1);
+    --select-bg: rgba(255, 255, 255, 0.2);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+}
+
 .profile {
     height: 30px;
 }
@@ -12,7 +20,7 @@
 .location {
     width: auto;
     height: 700px;
-    background-color: whitesmoke;
+    background-color: var(--main-color);
     margin: 15px;
     border-radius: 18px;
     display: flex;
@@ -35,17 +43,26 @@ h1 {
     font-weight: bold;
 }
 
-.live {
-    width: auto;
+.live_values {
+    width: 60%;
     border-radius: 18px;
     margin: 15px;
-    background-color: whitesmoke;
     height: auto;
+    background-color: var(--main-color);
+    display: flex;
+}
+
+.meteo {
+  background-color: var(--main-color);
+  display: flex;
+  margin: 15px;
+  height: auto;
+  border-radius: 18px;
 }
 
 .graph_bat {
     width: 50%;
-    background-color: whitesmoke;
+    background-color: var(--main-color);
     margin: 7.5px;
     margin-left: 15px;
     margin-top: 0px;
@@ -54,7 +71,7 @@ h1 {
 
 .graph_poids {
     width: 50%;
-    background-color: whitesmoke;
+    background-color: var(--main-color);
     margin: 7.5px;
     margin-right: 15px;
     margin-top: 0px;
@@ -111,12 +128,6 @@ h1 {
 }
 
 /* CSS Formulaire */
-
-:root {
-    --arrow-bg: #55a358;
-    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
-    --select-bg: rgba(255, 255, 255, 0.2);
-  }
   * {
     box-sizing: border-box;
   }
@@ -130,7 +141,7 @@ h1 {
     width: auto;
     padding: 1rem 4rem 1rem 1rem;
     background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
-      linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+      linear-gradient(to left, var(--secondary-color) 3em, var(--select-bg) 3em);
     color: black;
     border-radius: 18px;
     box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
@@ -140,3 +151,129 @@ h1 {
     }
   }
   
+
+/* CSS des deux veleurs en direct */
+
+.RadialBattery {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+  }
+  
+  .RadialBattery .percent {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-top: 50px;
+  }
+  
+  .RadialBattery .percent svg {
+    width: 150px;
+    height: 150px;
+    position: relative;
+  }
+  
+  .RadialBattery .percent svg circle {
+    width: 150px;
+    height: 150px;
+    fill: none;
+    stroke-width: 10;
+    stroke: rgb(229, 229, 229);
+    transform: translate(5px, 5px);
+    stroke-dasharray: 440;
+    stroke-linecap: round;
+  }
+  
+  .RadialBattery .percent .num {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: black;
+  }
+  
+  .RadialBattery .percent .num h2 {
+    font-size: 48px;
+  }
+  
+  .RadialBattery .percent .num h2 span {
+    font-size: 24px;
+  }
+  
+  .RadialBattery .text {
+    padding: 10px 0 0;
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+    letter-spacing: 1px;
+  }
+
+  
+
+  .RadialWeight {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+  }
+  
+  .RadialWeight .percent {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-top: 50px;
+  }
+  
+  .RadialWeight .percent svg {
+    width: 150px;
+    height: 150px;
+    position: relative;
+  }
+  
+  .RadialWeight .percent svg circle {
+    width: 150px;
+    height: 150px;
+    fill: none;
+    stroke-width: 10;
+    stroke: rgb(229, 229, 229);
+    transform: translate(5px, 5px);
+    stroke-dasharray: 440;
+    stroke-linecap: round;
+  }
+  
+  .RadialWeight .percent .num {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: black;
+  }
+  
+  .RadialWeight .percent .num h2 {
+    font-size: 48px;
+  }
+  
+  .RadialWeight .percent .num h2 span {
+    font-size: 24px;
+  }
+  
+  .RadialWeight .text {
+    padding: 10px 0 0;
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+    letter-spacing: 1px;
+  }

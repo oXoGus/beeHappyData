@@ -9,8 +9,23 @@ import BatteryChart from "../component/BatteryChart";
 import WeightChart from "../component/WeightChart";
 import Button from "../component/button";
 
+/*
+const setBatteryProgress = (progress) => {
+  const percent = Math.min(Math.max(progress, 0), 100);
+  const svgCircle = document.querySelector('.RadialBattery .percent svg circle:nth-child(2)');
+  const hue = 120 * (percent / 100); // Calcul de la teinte en fonction du pourcentage
+
+  svgCircle.style.stroke = `hsl(${hue}, 100%, 50%)`; // Utilisation de hsl pour définir la couleur en fonction de la teinte calculée
+  svgCircle.style.strokeDashoffset = `calc(440 - (440 * ${percent}) / 100)`; // Mise à jour du décalage de la ligne de contour en fonction du pourcentage
+}
+*/
+
 function Panel() {
 
+    const [batteryDataNow, setBatteryDataNow] = useState(null);
+    const [weightyDataNow, setWeightDataNow] = useState(null);
+    const [reloadBatteryData, setReloadBatteryData] = useState(true);
+    const [reloadWeightData, setReloadWeightData] = useState(true);
     const [batteryData, setBatteryData] = useState(null);
     const [selectedOptionBattery, setSelectedOptionBattery] = useState('30');
     const [weightData, setWeightData] = useState(null);
@@ -25,6 +40,42 @@ function Panel() {
     const handleOptionChangeWeight = (event) => {
         setSelectedOptionWeight(event.target.value);
     };
+
+    useEffect(() => {
+        axios.get(`${window.location.origin}/api/get/battery/1`)
+        .then(res => {
+            console.log(res.data[0].battery)
+            setBatteryDataNow(res.data[0].battery);
+            const setBatteryProgress = (progress) => {
+                const percent = Math.min(Math.max(progress, 0), 100);
+                const svgCircle = document.querySelector('.RadialBattery .percent svg circle:nth-child(2)');
+                const hue = 120 * (percent / 100); // Calcul de la teinte en fonction du pourcentage
+              
+                svgCircle.style.stroke = `hsl(${hue}, 100%, 33%)`; // Utilisation de hsl pour définir la couleur en fonction de la teinte calculée
+                svgCircle.style.strokeDashoffset = `calc(440 - (440 * ${percent}) / 100)`; // Mise à jour du décalage de la ligne de contour en fonction du pourcentage
+              }
+
+            setBatteryProgress(batteryDataNow);
+        })
+        .catch(err => {
+            console.error("Erreur lors du chargement des données de la batterie en tps réel", err);
+        })
+        // on reset le reload pour que l'état puisse re changer 
+        setReloadBatteryData(false);
+    }, [reloadBatteryData])
+
+    useEffect(() => {
+        axios.get(`${window.location.origin}/api/get/weight/1`)
+        .then(res => {
+            setWeightDataNow(res.data[0].weight);
+        })
+        .catch(err => {
+            console.error("Erreur lors du chargement des données de la masse en tps réel", err);
+        })
+
+        // on reset le reload pour que l'état puisse re changer 
+        setReloadWeightData(false);
+    }, [reloadWeightData])
 
     useEffect(() => {
         axios.get(`${window.location.origin}/api/get/battery/${selectedOptionBattery}`)
@@ -108,11 +159,35 @@ function Panel() {
         <div>
             <Navbar />
             <div className="page">
-                <section className="live">
-                    <div className="batterie_live">
+                <section className="top">
+                    <section className="live_values">
+                    <div className="RadialBattery">
+                            <div className="percent">
+                                <svg>
+                                <circle cx="70" cy="70" r="70"></circle>
+                                <circle cx="70" cy="70" r="70"></circle>
+                                </svg>
+                                <div className="num">
+                                <h2>{batteryDataNow}<span>%</span></h2>
+                                </div>
+                            </div>
+                            <h2 className="text">Batterie</h2>
+                            </div>
+                        <div className="RadialWeight">
+                            <div className="percent">
+                                <svg>
+                                <circle cx="70" cy="70" r="70"></circle>
+                                <circle cx="70" cy="70" r="70"></circle>
+                                </svg>
+                                <div className="num">
+                                <h2>{weightyDataNow}<span>Kg</span></h2>
+                                </div>
+                            </div>
+                            <h2 className="text">Poids</h2>
+                            </div>
+                    </section>
+                    <div className="meteo">
                         
-                    </div>
-                    <div className="poids_live">-
                     </div>
                 </section>
                 <section className="stats">

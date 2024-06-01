@@ -1,5 +1,13 @@
+:root {
+    --main-color: whitesmoke;
+    --accent-color: rgba(14,159,110,1);
+    --secondary-color: rgba(14,159,110,1);
+    --select-bg: rgba(255, 255, 255, 0.2);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+}
+
 body {
-    background-color: rgb(214, 214, 214);
+    background-color: var(--select-bg);
     margin: 0px;
     font-family: "Roboto Condensed", sans-serif;
     font-size: medium;
@@ -23,8 +31,8 @@ body {
 }
 
 .logo:hover {
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
 
@@ -50,7 +58,7 @@ body {
     -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
-    color: #0E9F6E;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
@@ -80,7 +88,7 @@ body {
     -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
-    color: #0E9F6E;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 

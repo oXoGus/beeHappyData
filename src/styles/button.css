@@ -1,3 +1,11 @@
+:root {
+  --main-color: whitesmoke;
+  --accent-color: rgba(14,159,110,1);
+  --secondary-color: rgba(14,159,110,1);
+  --select-bg: rgba(255, 255, 255, 0.2);
+  --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+}
+
 *,
 *:after,
 *:before {
@@ -11,18 +19,17 @@
 }
 .dir-control {
   --borderWidth: 2;
-  --buttonColor: #55a358;
   --bg: whitesmoke;
   --backdrop: transparent;
   --fontSize: 1;
   --horizontalPadding: 16;
   --verticalPadding: 8;
   background: var(--backdrop);
-  border: calc(var(--borderWidth) * 1px) solid var(--buttonColor);
+  border: calc(var(--borderWidth) * 1px) solid var(--secondary-color);
   border-radius: 9999px;
   text-align: center;
   line-height: 24px;
-  color: var(--textColor, var(--buttonColor));
+  color: var(--textColor, var(--secondary-color));
   cursor: pointer;
   font-size: calc(var(--fontSize) * 1rem);
   font-weight: bold;
@@ -86,8 +93,8 @@
 }
 .dir-control b {
   -webkit-clip-path: var(--clip);
-  background: var(--slideColor, var(--buttonColor));
-  border: calc(var(--borderWidth) * 1px) solid var(--buttonColor);
+  background: var(--slideColor, var(--secondary-color));
+  border: calc(var(--borderWidth) * 1px) solid var(--secondary-color);
   bottom: calc(var(--borderWidth) * -1px);
   font-weight: bold;
   clip-path: var(--clip);
@@ -118,7 +125,7 @@
   --clip: inset(0 100% 0 0);
 }
 .dir-control--secondary {
-  --buttonColor: #fff;
+  --secondary-color: #fff;
   --bg: #0d0d0d;
 }
 .dir-control--filled {
