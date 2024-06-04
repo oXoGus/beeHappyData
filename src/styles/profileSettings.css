@@ -1,0 +1,110 @@
+:root {
+    --main-color: whitesmoke;
+    --accent-color: rgba(14,159,110,1);
+    --secondary-color: #0e9f6e;
+    --select-bg: rgba(255, 255, 255, 0.2);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+}
+
+
+.settingsContainer {
+    margin: auto;
+    display: flex;
+    margin-top: 20px;
+    justify-content: left;
+    width: 60%;
+    height: auto;
+    border-radius: 18px;
+    background-color: var(--main-color);
+}
+
+.settings {
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 100%;
+    
+}
+
+.separator-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+
+}
+
+.line {
+    flex-grow: 3;
+    height: 1px;
+    background-color: #333;
+}
+
+.text {
+    margin: 0 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.activateNotif {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.rangeInput {
+    color: #0e9f6e;
+}
+
+.switch {
+    margin-left: auto;
+}
+
+/*  switch  */
+
+
+
+input[type=checkbox] {
+    /* on invisibilise un input de type checkbox  */
+    height: 10;
+    width: 0;
+  }
+  
+/* élément syncronisée avec la checkbox */
+label {
+    /* état non coché */
+    cursor: pointer;
+    width: 48px;
+    height: 26px;
+    background: rgb(211, 212, 214);
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+label:after {
+    /* les proprietées du cercle blanc */
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked + label {
+    /* état coché */
+    background: #0e9f6e;
+}
+
+input:checked + label:after {
+    /* deplacement du cercle  */
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    /* jsp ce que c'est */
+    width: 40;
+}

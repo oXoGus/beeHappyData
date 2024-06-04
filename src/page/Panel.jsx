@@ -158,7 +158,7 @@ function Panel() {
     return (
         <div>
             <Navbar />
-            <div className="page">
+            <div>
                 <section className="top">
                     <section className="live_values">
                     <div className="RadialBattery">
